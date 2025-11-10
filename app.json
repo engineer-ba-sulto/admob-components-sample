@@ -1,4 +1,12 @@
 {
+  "name": "admob-components-sample",
+  "slug": "admob-components-sample",
+  "ios": {
+    "bundleIdentifier": "com.engineerbasulto.admob-components-sample"
+  },
+  "android": {
+    "package": "com.engineerbasulto.admobcomponentssample"
+  },
   "scheme": "acme",
   "userInterfaceStyle": "automatic",
   "orientation": "default",
@@ -18,17 +26,12 @@
     [
       "react-native-google-mobile-ads",
       {
+        // ここではAdMobのアプリIDを指定します。
+        // テスト用アプリIDを設定しています。
+        // 本番リリース時は必ずGoogle AdMobの管理画面から発行された本番用アプリIDに変更してください。
         "androidAppId": "ca-app-pub-3940256099942544~3347511713",
         "iosAppId": "ca-app-pub-3940256099942544~1458002511"
       }
     ]
-  ],
-  "name": "admob-components-sample",
-  "slug": "admob-components-sample",
-  "ios": {
-    "bundleIdentifier": "com.engineerbasulto.admob-components-sample"
-  },
-  "android": {
-    "package": "com.engineerbasulto.admobcomponentssample"
-  }
+  ]
 }
