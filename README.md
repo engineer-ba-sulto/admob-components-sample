@@ -8,7 +8,7 @@ Expo Router と NativeWind を使用して構築されています。
 
 ```sh
 # 必要な依存関係のインストール
-npm install react-native-google-mobile-ads
+npx expo install react-native-google-mobile-ads
 ```
 
 ## 既存プロジェクトへの追加方法
@@ -21,25 +21,34 @@ npm install react-native-google-mobile-ads
 cd your-existing-project
 
 # AdMobパッケージのインストール
-npm install react-native-google-mobile-ads
-
-# またはyarnを使用する場合
-yarn add react-native-google-mobile-ads
+npx expo install react-native-google-mobile-ads expo-build-properties
 ```
 
 ### Expo 設定の確認
 
-`app.json`または`app.json`に AdMob プラグインが設定されていることを確認してください：
+[expo-build-properties のドキュメント](https://docs.expo.dev/versions/latest/sdk/build-properties/#example-appjson-with-config-plugin)を参考にして、`app.json`の`plugins`に `expo-build-properties` の設定を追加します。
+また、`react-native-google-mobile-ads` プラグインの設定も追加します。
 
 ```json
 {
   "expo": {
     "plugins": [
       [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      [
         "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-XXXXXXXXXX~XXXXXXXXXX",
-          "iosAppId": "ca-app-pub-XXXXXXXXXX~XXXXXXXXXX"
+          // ここではAdMobのアプリIDを指定します。
+          // テスト用アプリIDを設定しています。
+          // 本番リリース時は必ずGoogle AdMobの管理画面から発行された本番用アプリIDに変更してください。
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511"
         }
       ]
     ]
@@ -51,11 +60,11 @@ yarn add react-native-google-mobile-ads
 
 #### 設定ファイルの作成
 
-プロジェクトの`src/config/`ディレクトリを作成し、`ads.ts`ファイルをコピーしてください。
+`src/admob/`ディレクトリを作成し、`config.ts`を作成してください。
 
 バナー、インタースティシャル、報酬型広告のユニット ID を設定は空文字列のままにしておきます。
 
-```typescript:src/config/ads.ts
+```typescript:src/admob/config.ts
 productionAdUnitIds: {
   banner: "",
   interstitial: "",
@@ -65,7 +74,7 @@ productionAdUnitIds: {
 
 #### AdMob SDK の初期化
 
-`src/services/ads.ts`ファイルをプロジェクトにコピーし、アプリのエントリーポイントで初期化してください。
+`src/admob/`ディレクトリに`services.ts`を作成し、アプリのエントリーポイントで初期化してください。
 
 ##### 初期化の実装例
 
