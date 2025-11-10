@@ -1,17 +1,17 @@
 {
   "name": "admob-components-sample",
   "slug": "admob-components-sample",
-  "ios": {
-    "bundleIdentifier": "com.engineerbasulto.admob-components-sample"
-  },
-  "android": {
-    "package": "com.engineerbasulto.admobcomponentssample"
-  },
   "scheme": "acme",
   "userInterfaceStyle": "automatic",
   "orientation": "default",
   "web": {
     "output": "static"
+  },
+  "ios": {
+    "bundleIdentifier": "com.engineerbasulto.admob-components-sample"
+  },
+  "android": {
+    "package": "com.engineerbasulto.admobcomponentssample"
   },
   "plugins": [
     "expo-router",
