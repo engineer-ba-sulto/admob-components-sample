@@ -1,7 +1,7 @@
+import { getAdUnitId } from "@/admob/config";
 import React, { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
-import { getAdUnitId } from "../../config/ads";
 
 // コンポーネントのProps型定義
 export interface AdBannerProps {

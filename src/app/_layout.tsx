@@ -1,7 +1,7 @@
+import adsService from "@/admob/services";
 import { Slot } from "expo-router";
 import { useEffect } from "react";
 import "../global.css";
-import adsService from "../services/ads";
 
 export default function Layout() {
   useEffect(() => {

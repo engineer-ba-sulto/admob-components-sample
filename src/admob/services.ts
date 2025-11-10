@@ -1,10 +1,10 @@
+import { getAdUnitId } from "@/admob/config";
 import mobileAds, {
   AdEventType,
   BannerAdSize,
   InterstitialAd,
   MaxAdContentRating,
 } from "react-native-google-mobile-ads";
-import { getAdUnitId } from "../config/ads";
 
 class AdsService {
   private isInitialized = false;
